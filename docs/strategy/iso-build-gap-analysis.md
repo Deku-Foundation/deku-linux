@@ -7,11 +7,18 @@
 
 ## Executive decision
 
+**Architecture correction:** Deku is an independent distribution. The Fedora 44/Lorax ISO is only a temporary boot-test fixture, not the production base. The native target must be composed from Deku-owned recipes, authenticated package artifacts and a locked rootfs manifest. See the [native distribution architecture proposal](../architecture/native-distribution-architecture.md) and the [build worker security contract](https://github.com/Deku-Foundation/deku-build/blob/dev/docs/architecture/native-build-worker-design.md).
+
+
 Do not create another repository for the ISO. The original eight core repositories cover the integration path; the organization now also has supplementary repositories for profiles, testing, releases, trust, desktop integration, themes, kernel tracking, mirrors, updates and Rukn. Their existence does not mean those capabilities are implemented. The missing pieces are still working implementations and integration contracts, not repository names.
 
 Use upstream tools where they reduce risk, but do not quietly turn Deku into a Void, Fedora, NixOS, or Arch derivative while describing it as an independent distribution. A temporary upstream-based boot demo must be labelled as a prototype and must not be presented as a native Deku system.
 
 ## Current proof-of-boot evidence
+
+The successful Fedora-based image is a harness milestone only. It must not be promoted or described as a native Deku release. The next architecture milestone is one safely built native package, then a local authenticated repository, then a rootfs assembled from that closure.
+
+
 
 On 2026-10-23, [deku-system workflow run 40003527897](https://github.com/Deku-Foundation/deku-system/actions/runs/40003527897) produced an experimental Fedora 44 ISO and passed a UEFI/QEMU serial-marker smoke test. The ISO SHA-256 is `a5d604ea3964a8a05c7a42b0c515586204e0f5c23a1a5e412fa585649eca5a58`. The Actions artifact ZIP SHA-256 is `847bf4d9a0f38f080f0d619cf5c33b551b1ec91e758469ad263f63d8c773ffaa`; the artifact is temporary and expires 2026-10-30.
 
