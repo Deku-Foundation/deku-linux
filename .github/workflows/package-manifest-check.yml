@@ -2,7 +2,7 @@ name: Package manifest prototype
 
 on:
   push:
-    branches: [main, "feat/**"]
+    branches: [main, dev]
     paths:
       - "prototype/package-manifest/**"
       - ".github/workflows/package-manifest-check.yml"
