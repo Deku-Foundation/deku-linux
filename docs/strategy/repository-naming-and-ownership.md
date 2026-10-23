@@ -17,7 +17,6 @@ The organization has standardized the primary component repositories around Deku
 | Installation plan validation and future installer | [deku-installer](https://github.com/Deku-Foundation/deku-installer) | Non-destructive plan prototype; no disk writes or installation execution |
 | Public infrastructure and operational security documentation | [deku-infra](https://github.com/Deku-Foundation/deku-infra) | Bootstrap documentation; no production release infrastructure |
 | Public website and GitHub Pages workflow | [Deku-Foundation.github.io](https://github.com/Deku-Foundation/Deku-Foundation.github.io) | Static multilingual site; no supported ISO or release download |
-
 | Declarative system and desktop profiles | [deku-profiles](https://github.com/Deku-Foundation/deku-profiles) | Experimental x86_64/Fedora bootstrap profile; not an independently validated build input |
 | Cross-project integration and VM acceptance tests | [deku-tests](https://github.com/Deku-Foundation/deku-tests) | Unit-tested QEMU/UEFI serial-marker harness; no Deku ISO has passed it yet |
 | Release manifests and artifact promotion | [deku-release](https://github.com/Deku-Foundation/deku-release) | Manifest and promotion contract only; no release pipeline |
