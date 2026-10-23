@@ -1,0 +1,13 @@
+{
+  "manifest_version": 0,
+  "name": "hello",
+  "version": "1.0.0",
+  "release": 1,
+  "summary": "Illustrative package metadata; not a real build input",
+  "license": "MIT",
+  "architectures": ["x86_64"],
+  "source": {
+    "url": "https://example.org/placeholder-source.tar.gz",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}
