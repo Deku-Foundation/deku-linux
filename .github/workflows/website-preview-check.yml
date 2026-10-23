@@ -1,0 +1,73 @@
+name: Website preview checks
+
+on:
+  push:
+    branches: [main, "site/**"]
+    paths:
+      - "website/**"
+      - ".github/workflows/website-preview-check.yml"
+  pull_request:
+    paths:
+      - "website/**"
+      - ".github/workflows/website-preview-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Validate local assets and anchors
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          root = Path("website")
+          page = root / "index.html"
+          if not page.is_file():
+              raise SystemExit("website/index.html is missing")
+
+          class Checker(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.ids = set()
+                  self.links = []
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if attrs.get("id"):
+                      self.ids.add(attrs["id"])
+                  for key in ("href", "src"):
+                      value = attrs.get(key)
+                      if value:
+                          self.links.append((key, value))
+
+          checker = Checker()
+          checker.feed(page.read_text(encoding="utf-8"))
+          errors = []
+          for kind, value in checker.links:
+              parsed = urlparse(value)
+              if parsed.scheme or value.startswith("//") or value.startswith("mailto:") or value.startswith("tel:"):
+                  continue
+              if value.startswith("#"):
+                  if value[1:] and value[1:] not in checker.ids:
+                      errors.append(f"missing in-page anchor: {value}")
+                  continue
+              local_path = (root / parsed.path).resolve()
+              if not local_path.is_relative_to(root.resolve()):
+                  errors.append(f"path escapes website directory: {value}")
+              elif not local_path.is_file():
+                  errors.append(f"missing local {kind}: {value}")
+
+          if errors:
+              raise SystemExit("\\n".join(errors))
+          print(f"Validated {len(checker.links)} local and external references.")
+          PY
+      - name: Check JavaScript syntax
+        run: node --check website/assets/main.js
