@@ -1,7 +1,7 @@
 # Foundation scope and Arabic-first language strategy
 
-**Status:** proposal for review  
-**Scope:** organization identity, multi-project portfolio, and a possible Arabic-first programming language  
+**Status:** proposal for review
+**Scope:** organization identity, multi-project portfolio, and a possible Arabic-first programming language
 **Non-goal:** this document does not claim that a new language, compiler, standard library, or self-hosting toolchain exists.
 
 ## 1. Foundation, not a single-product company
