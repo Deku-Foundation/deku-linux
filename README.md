@@ -40,6 +40,10 @@ The active repositories and their actual prototype status are recorded in [repos
 - [Deku-Foundation.github.io](https://github.com/Deku-Foundation/Deku-Foundation.github.io) — static English, French and Arabic website.
 - deku-linux — project direction, architecture decisions, roadmap, contribution and security policy.
 
+## Architecture decisions
+
+The current proposal is [ADR-0001: First ISO and Rust-first architecture](docs/adr/0001-first-iso-and-rust-first-architecture.md). It separates a real upstream-based technology-preview ISO from the later goal of an independent Deku distribution, and defines what must be proven before any release claim.
+
 ## Current milestone
 
 See [ISO roadmap and repository gaps](docs/strategy/iso-build-gap-analysis.md) for the upstream tooling comparison, justified future repository names, architecture decisions and measurable gates toward a first bootable x86_64 prototype. The immediate goal is integration and a VM-verified image, not adding empty repositories.
