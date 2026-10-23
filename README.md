@@ -59,6 +59,9 @@ The current proposal is [ADR-0001: First ISO and Rust-first architecture](docs/a
 
 See [ISO roadmap and repository gaps](docs/strategy/iso-build-gap-analysis.md) for the upstream tooling comparison, the roles of the repositories that now exist, architecture decisions and measurable gates toward a first bootable x86_64 prototype. The immediate goal is to fix the GRUB image-assembly failure, then pass the disposable UEFI boot test—not create more repositories.
 
+
+**Architecture direction:** Deku is an independent distribution, not a Fedora/Void/NixOS derivative. The Fedora 44 image is only a temporary boot-test fixture. The proposed native architecture and acceptance gates are documented in [Native Deku Distribution Architecture](docs/architecture/native-distribution-architecture.md); implementation boundaries are recorded in the system and build repositories.
+
 Make architecture decisions reviewable and strengthen the package/build prototypes before attempting a bootable image. Repository signing, isolated builds, file ownership, transactions, interrupted-update recovery and image creation remain future milestones.
 
 ## Language
