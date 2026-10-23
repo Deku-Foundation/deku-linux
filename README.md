@@ -2,7 +2,8 @@
 
 Deku Linux is an independent, free and open-source Linux distribution in its foundation and prototype stage. The project prioritizes maintainability, a coherent desktop experience, transparent engineering decisions and explicit software-supply-chain trust boundaries.
 
-> **Status:** no public ISO, supported release, production package repository, production installer, or reproducible system-image pipeline is available. Component repositories contain prototypes and proposals; they do not yet constitute an installable distribution.
+> **Status:** No official supported ISO, production package repository or installer is available. An experimental Fedora 44/Lorax ISO has been built and passed one UEFI/QEMU console-marker smoke test ([run 40003527897](https://github.com/Deku-Foundation/deku-system/actions/runs/40003527897), ISO SHA-256: `a5d604ea3964a8a05c7a42b0c515586204e0f5c23a1a5e412fa585649eca5a58`). This is an upstream-based technology preview, not an independent Deku system or production-readiness claim; its Actions artifact is short-lived.
+
 
 ## Goals
 
