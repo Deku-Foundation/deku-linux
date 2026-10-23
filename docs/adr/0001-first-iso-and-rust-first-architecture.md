@@ -26,6 +26,9 @@ Deku's current package manager, recipes, build coordinator, system composition a
 
 The Linux kernel is primarily C, systemd and major desktop components are established upstream projects, and replacing them would multiply risk without advancing the first ISO. Rust should be used where Deku owns new control-plane logic and memory-safety benefits matter. The distribution can be Rust-first without falsely claiming that every component is Rust.
 
+
+For the longer-term root ownership, update and rollback comparison, see [ADR-0002: System Updates, Root Ownership and Rollback Model](0002-system-update-transaction-model.md).
+
 ## Consequences
 
 - The first ISO demonstrates a real boot path but does not prove full independence from Fedora.
