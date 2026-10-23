@@ -1,6 +1,6 @@
 # Compatible software strategy and upstream research
 
-**Research date:** 2026-10-23  
+**Research date:** 2026-10-23
 **Status:** Engineering baseline for prototypes; not a claim of production readiness.
 
 ## The compatibility goal: broad intake, honest guarantees
