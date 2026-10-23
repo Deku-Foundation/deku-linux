@@ -33,10 +33,20 @@ The active repositories and their actual prototype status are recorded in [repos
 
 - [deku-pkg](https://github.com/Deku-Foundation/deku-pkg) — Rust package metadata validation, deterministic dependency planning and streamed SHA-256 artifact verification; no production installation, signature trust or transaction engine.
 - [deku-recipes](https://github.com/Deku-Foundation/deku-recipes) — strict recipe metadata validation; no recipe execution.
-- [deku-build](https://github.com/Deku-Foundation/deku-build) — bounded build-plan validation; no isolated build worker.
-- [deku-system](https://github.com/Deku-Foundation/deku-system) — system manifest validation; no root filesystem or image assembly.
+- [deku-build](https://github.com/Deku-Foundation/deku-build) — Python reference and Rust build-plan validation CLI; no isolated package-build worker yet.
+- [deku-system](https://github.com/Deku-Foundation/deku-system) — system manifest validation plus an experimental Fedora 44/Lorax ISO pipeline currently being debugged; no accepted bootable Deku ISO yet.
 - [deku-installer](https://github.com/Deku-Foundation/deku-installer) — non-destructive installation-plan validation; no disk-writing operations.
 - [deku-infra](https://github.com/Deku-Foundation/deku-infra) — infrastructure and publication guidance; no production release service.
+- [deku-profiles](https://github.com/Deku-Foundation/deku-profiles) — experimental system-profile specifications; not a verified build input yet.
+- [deku-tests](https://github.com/Deku-Foundation/deku-tests) — integration contracts and a disposable QEMU/UEFI boot-smoke harness; no Deku ISO has passed it yet.
+- [deku-release](https://github.com/Deku-Foundation/deku-release) — release-manifest and promotion-gate proposal; no release pipeline.
+- [deku-signing](https://github.com/Deku-Foundation/deku-signing) — package/release trust model; no production keys or signing service.
+- [deku-updater](https://github.com/Deku-Foundation/deku-updater) — future update orchestration; depends on trusted repositories and recoverable package transactions.
+- [deku-kernel](https://github.com/Deku-Foundation/deku-kernel) — upstream kernel configuration/patch tracking; not a kernel fork.
+- [deku-desktop](https://github.com/Deku-Foundation/deku-desktop) — KDE Plasma integration planning; no supported desktop image.
+- [deku-themes](https://github.com/Deku-Foundation/deku-themes) — theme and visual assets with explicit licensing.
+- [deku-mirrors](https://github.com/Deku-Foundation/deku-mirrors) — future mirror policy; no production mirror service.
+- [deku-rukn](https://github.com/Deku-Foundation/deku-rukn) — separate Arabic-first Rust language/toolchain project, not an ISO prerequisite.
 - [Deku-Foundation.github.io](https://github.com/Deku-Foundation/Deku-Foundation.github.io) — static English, French and Arabic website.
 - deku-linux — project direction, architecture decisions, roadmap, contribution and security policy.
 
@@ -46,7 +56,7 @@ The current proposal is [ADR-0001: First ISO and Rust-first architecture](docs/a
 
 ## Current milestone
 
-See [ISO roadmap and repository gaps](docs/strategy/iso-build-gap-analysis.md) for the upstream tooling comparison, justified future repository names, architecture decisions and measurable gates toward a first bootable x86_64 prototype. The immediate goal is integration and a VM-verified image, not adding empty repositories.
+See [ISO roadmap and repository gaps](docs/strategy/iso-build-gap-analysis.md) for the upstream tooling comparison, the roles of the repositories that now exist, architecture decisions and measurable gates toward a first bootable x86_64 prototype. The immediate goal is to fix the GRUB image-assembly failure, then pass the disposable UEFI boot test—not create more repositories.
 
 Make architecture decisions reviewable and strengthen the package/build prototypes before attempting a bootable image. Repository signing, isolated builds, file ownership, transactions, interrupted-update recovery and image creation remain future milestones.
 
