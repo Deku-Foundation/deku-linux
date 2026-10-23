@@ -18,6 +18,10 @@ The organization has standardized the primary component repositories around Deku
 | Public infrastructure and operational security documentation | [deku-infra](https://github.com/Deku-Foundation/deku-infra) | Bootstrap documentation; no production release infrastructure |
 | Public website and GitHub Pages workflow | [Deku-Foundation.github.io](https://github.com/Deku-Foundation/Deku-Foundation.github.io) | Static multilingual site; release status remains explicitly pre-release |
 
+## ISO roadmap and repository gaps
+
+See [ISO roadmap](iso-build-gap-analysis.md) for the upstream tooling comparison, the few justified future repository candidates, architecture decisions, and the acceptance gates for a first bootable image. Current recommendation: no additional repository is required for the first ISO. Keep profiles and VM smoke tests in `deku-system`; defer `deku-tests` and `deku-release` until shared testing/release workflows justify separate ownership.
+
 ## Ownership boundaries
 
 - Keep recipes separate from the package-manager implementation so source review and client releases can follow different lifecycles.

@@ -2,6 +2,8 @@
 
 This roadmap defines decision gates, not promised release dates. A stage is complete only when its exit criteria are supported by reviewable evidence. A validator passing tests is evidence for that validator—not evidence that an operating system can install or boot.
 
+See the [ISO build gap analysis and upstream strategy](strategy/iso-build-gap-analysis.md) for the repository capability audit, upstream tool comparison, and measurable gates toward a bootable developer image.
+
 ## Stage 0 — Governance and scope
 
 - [x] Establish the project charter and initial contribution/security guidance.
