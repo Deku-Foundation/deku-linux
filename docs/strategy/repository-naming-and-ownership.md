@@ -37,6 +37,14 @@ See [ISO roadmap](iso-build-gap-analysis.md) for the upstream tooling comparison
 - Keep generated binaries and ISO images out of ordinary Git history.
 - Do not fork the Linux kernel or an upstream package ecosystem solely to hold local configuration. Store Deku's configuration, recipes, patches and test evidence in the appropriate repository unless a separately maintained patch queue justifies a split.
 
+## Branch hygiene
+
+- Keep `main` and `dev` as the only persistent development branches in each active repository.
+- Develop on `dev`; promote changes to `main` only after required CI checks, review, and relevant integration/VM tests pass.
+- Avoid persistent feature branches. Use a short-lived PR branch only when a review or CI workflow genuinely requires it, then remove it after merge.
+- Protect `main` from direct pushes where GitHub settings permit. Keep `dev` testable and periodically synchronize it with `main` after promotions.
+- Never delete or force-update `main` or `dev`. Remove obsolete topic branches only after confirming they contain no unique unmerged work and are not used by an open PR or deployment.
+
 ## What this inventory does not claim
 
 The existence of a repository does not mean its intended production service is implemented. The package manager, build workers, repository signing service, installer, system image builder and release infrastructure remain prototypes or planned work until their own acceptance gates pass.
