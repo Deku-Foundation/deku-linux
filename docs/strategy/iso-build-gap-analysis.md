@@ -1,6 +1,6 @@
 # ISO build gap analysis and repository plan
 
-- **Status:** Research and implementation plan; not an accepted architecture decision.
+- **Status:** An upstream-based Fedora 44 proof-of-boot has passed once; the long-term architecture and production release model remain unaccepted.
 - **Reviewed:** 2026-10-23
 - **Immediate target:** A clearly labelled, x86_64 bootable proof-of-concept image, followed by a traceable developer ISO only after the package and root-filesystem path is real.
 - **Release rule:** Do not publish or advertise a supported Deku ISO until the release gates below pass.
@@ -10,6 +10,12 @@
 Do not create another repository for the ISO. The original eight core repositories cover the integration path; the organization now also has supplementary repositories for profiles, testing, releases, trust, desktop integration, themes, kernel tracking, mirrors, updates and Rukn. Their existence does not mean those capabilities are implemented. The missing pieces are still working implementations and integration contracts, not repository names.
 
 Use upstream tools where they reduce risk, but do not quietly turn Deku into a Void, Fedora, NixOS, or Arch derivative while describing it as an independent distribution. A temporary upstream-based boot demo must be labelled as a prototype and must not be presented as a native Deku system.
+
+## Current proof-of-boot evidence
+
+On 2026-10-23, [deku-system workflow run 40003527897](https://github.com/Deku-Foundation/deku-system/actions/runs/40003527897) produced an experimental Fedora 44 ISO and passed a UEFI/QEMU serial-marker smoke test. The ISO SHA-256 is `a5d604ea3964a8a05c7a42b0c515586204e0f5c23a1a5e412fa585649eca5a58`. The Actions artifact ZIP SHA-256 is `847bf4d9a0f38f080f0d619cf5c33b551b1ec91e758469ad263f63d8c773ffaa`; the artifact is temporary and expires 2026-10-30.
+
+This achieves the first build-to-boot proof, not the finished first release. Current gaps include immutable target RPM snapshots, a complete SBOM and signed provenance, system health checks beyond the marker, install/rollback tests, hardware validation, and a production trust/update design.
 
 ## What upstream projects teach us
 
