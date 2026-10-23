@@ -1,13 +1,13 @@
 {
   "manifest_version": 0,
   "name": "hello",
-  "version": "2.12.1",
+  "version": "1.0.0",
   "release": 1,
-  "summary": "GNU Hello example package metadata",
-  "license": "GPL-3.0-or-later",
+  "summary": "Illustrative package metadata; not a real build input",
+  "license": "MIT",
   "architectures": ["x86_64"],
   "source": {
-    "url": "https://ftp.gnu.org/gnu/hello/hello-2.12.1.tar.gz",
-    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    "url": "https://example.org/placeholder-source.tar.gz",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
   }
 }
