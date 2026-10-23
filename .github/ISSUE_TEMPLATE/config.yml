@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contribution guide and component ownership
+    url: https://github.com/Deku-Foundation/deku-linux/blob/main/CONTRIBUTING.md
+    about: Check the guidance and use the repository that owns the code or documentation.
+  - name: Private security reporting guidance
+    url: https://github.com/Deku-Foundation/deku-linux/blob/main/SECURITY.md
+    about: Do not publish exploitable or unpatched vulnerability details in a public issue.
+  - name: Engineering workspace
+    url: https://deku-foundation.github.io/development/
+    about: Find the canonical repository, issue tracker, pull requests and CI for each component.
