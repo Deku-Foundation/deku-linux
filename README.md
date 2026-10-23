@@ -34,9 +34,11 @@ The initial target is x86_64. Decisions about libc, init system, kernel policy, 
 - `SECURITY.md` — vulnerability reporting policy.
 - `.github/` — issue and pull-request templates.
 
-## Planned repositories
+## Repository direction
 
-Separate repositories should be created only where there is a clear ownership or release boundary: `packages`, `build-system`, `infrastructure`, `installer`, and eventually `system-tools`.
+Repository names and ownership are being standardized around Deku components. The proposed map is documented in [repository naming and ownership](docs/strategy/repository-naming-and-ownership.md). Proposed names are not live repositories until the organization changes are made and verified.
+
+The package manager is planned as a Deku-owned component; its requirements and prototype gates are recorded in [ADR-0003](docs/adr/0003-native-package-system.md). It is not implemented yet.
 
 ## Current milestone
 
