@@ -20,7 +20,7 @@ The organization has standardized the primary component repositories around Deku
 
 ## ISO roadmap and repository gaps
 
-See [ISO roadmap](iso-roadmap.md) for the upstream tooling comparison, the few justified future repository candidates, architecture decisions, and the acceptance gates for a first bootable image. Current recommendation: do not create empty repositories; keep profiles in `deku-system` until a real profile needs independent maintenance, and defer `deku-tests` and `deku-release` until shared testing/release workflows justify separate ownership.
+See [ISO roadmap](iso-build-gap-analysis.md) for the upstream tooling comparison, the few justified future repository candidates, architecture decisions, and the acceptance gates for a first bootable image. Current recommendation: no additional repository is required for the first ISO. Keep profiles and VM smoke tests in `deku-system`; defer `deku-tests` and `deku-release` until shared testing/release workflows justify separate ownership.
 
 ## Ownership boundaries
 
