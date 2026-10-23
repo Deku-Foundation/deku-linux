@@ -34,9 +34,9 @@ The initial target is x86_64. Decisions about libc, init system, kernel policy, 
 - `SECURITY.md` — vulnerability reporting policy.
 - `.github/` — issue and pull-request templates.
 
-## Planned repositories
+## Repository map
 
-Separate repositories should be created only where there is a clear ownership or release boundary: `packages`, `build-system`, `infrastructure`, `installer`, and eventually `system-tools`.
+The organization is moving toward purpose-specific Deku-named repositories. The current intended ownership map is documented in [`docs/strategy/repository-layout-and-migration.md`](docs/strategy/repository-layout-and-migration.md). Existing repository names and links should be updated in focused pull requests; repository renames, forks, and transfers must be performed by an organization owner through GitHub settings when the available tooling cannot perform them safely.
 
 ## Current milestone
 
