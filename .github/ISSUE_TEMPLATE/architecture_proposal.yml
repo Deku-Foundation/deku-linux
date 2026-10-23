@@ -1,0 +1,50 @@
+name: Architecture proposal
+description: Request a tracked technical decision before a broad implementation
+title: "[ADR]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for a decision that affects more than one component or is expensive to reverse. Keep implementation details and assumptions distinct. Do not post private vulnerability details here.
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and constraints
+      description: Explain the problem, affected components, supported platforms and current evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision needed
+      description: State the specific question the maintainers should resolve.
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options considered
+      description: Compare at least two plausible options when available, including reusing an upstream component.
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: Trade-offs and risks
+      description: Cover security boundaries, compatibility, migration, maintenance cost, licensing and recovery where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and experiments
+      description: Link source documents, prototypes, test results or a small experiment that can distinguish the options.
+    validations:
+      required: false
+  - type: textarea
+    id: exit
+    attributes:
+      label: Acceptance and exit criteria
+      description: What evidence is required to accept the decision and safely start implementation?
+    validations:
+      required: true

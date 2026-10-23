@@ -1,0 +1,65 @@
+name: Feature proposal
+description: Suggest a scoped improvement with a clear user or maintainer outcome
+title: "[Proposal]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search existing issues and pull requests first. Use this form for public, non-sensitive proposals. For security vulnerabilities, follow SECURITY.md instead of posting exploitable details here.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Select the repository or system area that owns the change.
+      options:
+        - Project architecture
+        - Package manager
+        - Package recipes
+        - Build tooling
+        - Installer
+        - System composition
+        - Security and release engineering
+        - Website and documentation
+        - Other or unsure
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the current limitation and who it affects.
+      placeholder: Explain the concrete task, gap or failure.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed outcome
+      description: Describe the user-visible or maintainer-visible result. Avoid prescribing an implementation before the constraints are known.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable conditions that would make this work complete.
+      placeholder: |
+        - [ ] A reproducible behaviour or output changes.
+        - [ ] A test or validation demonstrates the change.
+        - [ ] Documentation describes new limitations.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks and alternatives
+      description: Note compatibility, maintenance, security, accessibility or migration implications; mention alternatives considered.
+    validations:
+      required: false
+  - type: input
+    id: related
+    attributes:
+      label: Related issue, PR, ADR or source
+      description: Link relevant work, if any.
+    validations:
+      required: false
