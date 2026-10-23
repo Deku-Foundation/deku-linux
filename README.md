@@ -42,6 +42,8 @@ The active repositories and their actual prototype status are recorded in [repos
 
 ## Current milestone
 
+See [ISO roadmap and repository gaps](docs/strategy/iso-roadmap.md) for the upstream tooling comparison, justified future repository names, architecture decisions and measurable gates toward a first bootable x86_64 prototype. The immediate goal is integration and a VM-verified image, not adding empty repositories.
+
 Make architecture decisions reviewable and strengthen the package/build prototypes before attempting a bootable image. Repository signing, isolated builds, file ownership, transactions, interrupted-update recovery and image creation remain future milestones.
 
 ## Language
