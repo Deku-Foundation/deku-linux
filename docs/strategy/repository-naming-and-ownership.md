@@ -13,12 +13,12 @@ The organization has standardized the primary component repositories around Deku
 | Native package metadata, dependency planning and artifact verification | [deku-pkg](https://github.com/Deku-Foundation/deku-pkg) | Python and Rust prototypes; no production installation or repository client |
 | Package recipes and source metadata | [deku-recipes](https://github.com/Deku-Foundation/deku-recipes) | Metadata schema and validation; no source build execution |
 | Build-plan validation and future isolated build workers | [deku-build](https://github.com/Deku-Foundation/deku-build) | Python reference plus Rust validation CLI; no build sandbox or artifact pipeline |
-| System composition and image assembly | [deku-system](https://github.com/Deku-Foundation/deku-system) | Experimental Fedora 44/Lorax ISO builder; first attempt failed during GRUB ISO creation, and boot acceptance has not passed |
+| System composition and image assembly | [deku-system](https://github.com/Deku-Foundation/deku-system) | Fedora 44/Lorax technology-preview ISO successfully built and passed one UEFI/QEMU serial-marker test; latest profile/toolchain revision is being retested |
 | Installation plan validation and future installer | [deku-installer](https://github.com/Deku-Foundation/deku-installer) | Non-destructive plan prototype; no disk writes or installation execution |
 | Public infrastructure and operational security documentation | [deku-infra](https://github.com/Deku-Foundation/deku-infra) | Bootstrap documentation; no production release infrastructure |
 | Public website and GitHub Pages workflow | [Deku-Foundation.github.io](https://github.com/Deku-Foundation/Deku-Foundation.github.io) | Static multilingual site; no supported ISO or release download |
-| Declarative system and desktop profiles | [deku-profiles](https://github.com/Deku-Foundation/deku-profiles) | Experimental x86_64/Fedora bootstrap profile; not an independently validated build input |
-| Cross-project integration and VM acceptance tests | [deku-tests](https://github.com/Deku-Foundation/deku-tests) | Unit-tested QEMU/UEFI serial-marker harness; no Deku ISO has passed it yet |
+| Declarative system and desktop profiles | [deku-profiles](https://github.com/Deku-Foundation/deku-profiles) | Fedora 44 canonical profile restored after Fedora 45 media returned HTTP 404; latest profile contract checks pass |
+| Cross-project integration and VM acceptance tests | [deku-tests](https://github.com/Deku-Foundation/deku-tests) | QEMU/UEFI serial-marker harness passed against one Fedora 44 technology-preview ISO; wider runtime and hardware testing remain open |
 | Release manifests and artifact promotion | [deku-release](https://github.com/Deku-Foundation/deku-release) | Manifest and promotion contract only; no release pipeline |
 | Repository/release trust policy and verification | [deku-signing](https://github.com/Deku-Foundation/deku-signing) | Trust-model proposal; no production keys or signing service |
 | System update client | [deku-updater](https://github.com/Deku-Foundation/deku-updater) | Future component; no updater implementation |
@@ -31,7 +31,7 @@ The organization has standardized the primary component repositories around Deku
 
 ## ISO roadmap and repository gaps
 
-See [ISO build gap analysis](iso-build-gap-analysis.md) for the upstream tooling comparison, architecture decisions, the current failure evidence and acceptance gates. The organization already has the required repository boundaries; do not add more. Build and test the actual integration before describing a subsystem as implemented.
+See [ISO build gap analysis](iso-build-gap-analysis.md) for the upstream tooling comparison, architecture decisions, the first successful boot evidence and the remaining acceptance gates. The organization already has the required repository boundaries; do not add more. Build and test the actual integration before describing a subsystem as implemented.
 
 ## Ownership boundaries
 
