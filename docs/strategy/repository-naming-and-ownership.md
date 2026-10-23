@@ -12,15 +12,26 @@ The organization has standardized the primary component repositories around Deku
 | Project direction, architecture decisions, roadmap and contribution/security policy | [deku-linux](https://github.com/Deku-Foundation/deku-linux) | Planning and engineering proposals; no release image |
 | Native package metadata, dependency planning and artifact verification | [deku-pkg](https://github.com/Deku-Foundation/deku-pkg) | Python and Rust prototypes; no production installation or repository client |
 | Package recipes and source metadata | [deku-recipes](https://github.com/Deku-Foundation/deku-recipes) | Metadata schema and validation; no source build execution |
-| Build-plan validation and future isolated build workers | [deku-build](https://github.com/Deku-Foundation/deku-build) | Validation-only prototype; no build sandbox or artifact pipeline |
-| System composition manifests and future image assembly | [deku-system](https://github.com/Deku-Foundation/deku-system) | Manifest validation only; no root filesystem or image assembly |
+| Build-plan validation and future isolated build workers | [deku-build](https://github.com/Deku-Foundation/deku-build) | Python reference plus Rust validation CLI; no build sandbox or artifact pipeline |
+| System composition and image assembly | [deku-system](https://github.com/Deku-Foundation/deku-system) | Experimental Fedora 44/Lorax ISO builder; first attempt failed during GRUB ISO creation, and boot acceptance has not passed |
 | Installation plan validation and future installer | [deku-installer](https://github.com/Deku-Foundation/deku-installer) | Non-destructive plan prototype; no disk writes or installation execution |
 | Public infrastructure and operational security documentation | [deku-infra](https://github.com/Deku-Foundation/deku-infra) | Bootstrap documentation; no production release infrastructure |
-| Public website and GitHub Pages workflow | [Deku-Foundation.github.io](https://github.com/Deku-Foundation/Deku-Foundation.github.io) | Static multilingual site; release status remains explicitly pre-release |
+| Public website and GitHub Pages workflow | [Deku-Foundation.github.io](https://github.com/Deku-Foundation/Deku-Foundation.github.io) | Static multilingual site; no supported ISO or release download |
+| Declarative system and desktop profiles | [deku-profiles](https://github.com/Deku-Foundation/deku-profiles) | Experimental x86_64/Fedora bootstrap profile; not an independently validated build input |
+| Cross-project integration and VM acceptance tests | [deku-tests](https://github.com/Deku-Foundation/deku-tests) | Unit-tested QEMU/UEFI serial-marker harness; no Deku ISO has passed it yet |
+| Release manifests and artifact promotion | [deku-release](https://github.com/Deku-Foundation/deku-release) | Manifest and promotion contract only; no release pipeline |
+| Repository/release trust policy and verification | [deku-signing](https://github.com/Deku-Foundation/deku-signing) | Trust-model proposal; no production keys or signing service |
+| System update client | [deku-updater](https://github.com/Deku-Foundation/deku-updater) | Future component; no updater implementation |
+| Kernel configuration and narrow patch queue | [deku-kernel](https://github.com/Deku-Foundation/deku-kernel) | Upstream tracking scope only; not a kernel fork/build service |
+| KDE Plasma integration and defaults | [deku-desktop](https://github.com/Deku-Foundation/deku-desktop) | Bootstrap stage; no supported desktop image |
+| Theme and visual assets | [deku-themes](https://github.com/Deku-Foundation/deku-themes) | Bootstrap stage; licenses and attribution required for every asset |
+| Mirror policy and future synchronization | [deku-mirrors](https://github.com/Deku-Foundation/deku-mirrors) | Planning only; no production mirror service |
+| Arabic-first Rust language/toolchain | [deku-rukn](https://github.com/Deku-Foundation/deku-rukn) | Separate experimental language project; not an ISO dependency |
+| Organization profile and shared guidance | [.github](https://github.com/Deku-Foundation/.github) | Organization metadata, not an OS component |
 
 ## ISO roadmap and repository gaps
 
-See [ISO roadmap](iso-build-gap-analysis.md) for the upstream tooling comparison, the few justified future repository candidates, architecture decisions, and the acceptance gates for a first bootable image. Current recommendation: no additional repository is required for the first ISO. Keep profiles and VM smoke tests in `deku-system`; defer `deku-tests` and `deku-release` until shared testing/release workflows justify separate ownership.
+See [ISO build gap analysis](iso-build-gap-analysis.md) for the upstream tooling comparison, architecture decisions, the current failure evidence and acceptance gates. The organization already has the required repository boundaries; do not add more. Build and test the actual integration before describing a subsystem as implemented.
 
 ## Ownership boundaries
 

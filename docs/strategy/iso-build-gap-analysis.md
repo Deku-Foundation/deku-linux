@@ -7,7 +7,7 @@
 
 ## Executive decision
 
-Do not create another repository for the ISO yet. The current eight repositories already map to the necessary responsibilities. The missing pieces are working implementations and integration contracts, not repository names.
+Do not create another repository for the ISO. The original eight core repositories cover the integration path; the organization now also has supplementary repositories for profiles, testing, releases, trust, desktop integration, themes, kernel tracking, mirrors, updates and Rukn. Their existence does not mean those capabilities are implemented. The missing pieces are still working implementations and integration contracts, not repository names.
 
 Use upstream tools where they reduce risk, but do not quietly turn Deku into a Void, Fedora, NixOS, or Arch derivative while describing it as an independent distribution. A temporary upstream-based boot demo must be labelled as a prototype and must not be presented as a native Deku system.
 
@@ -38,7 +38,7 @@ Upstream references:
 
 ## Repository gap inventory
 
-### Existing repositories: keep and implement
+### Core repositories: keep and implement
 
 1. **deku-linux** — project charter, accepted ADRs, threat model, roadmap, release criteria and integration contracts. It must not become a dumping ground for build scripts.
 2. **deku-recipes** — reviewed, versioned recipe metadata, source pins, licenses, patch references and maintainer/review records. A recipe validator is not a package builder.
@@ -63,18 +63,30 @@ Upstream references:
 - An installer integration path, only after the live image can boot and the package/rootfs format is stable.
 - Release publication and retention that keep generated ISO files out of ordinary Git history.
 
-## Should we create more repositories?
+## Supplementary repositories that now exist
 
-**No additional repository is required for the first ISO.** Implement the gaps in the eight existing repositories and document the cross-repository contracts in deku-linux.
+These repositories have been created and seeded with scope/status documentation. Treat them as real project boundaries, but do not invent work or claim services exist just to populate them.
 
-Create a new repository only when there is a real, independently testable deliverable with separate maintainership or release/security boundaries:
-- **deku-lang** — potentially appropriate for the planned Arabic/Rust-origin programming language once there is an actual compiler/runtime project. It is not an ISO prerequisite.
-- **deku-release** — only if release orchestration becomes sufficiently separate from deku-infra to justify separate ownership and credentials. Do not create it now.
-- **deku-kernel, deku-firmware, deku-desktop, deku-themes, or deku-mirrors** — do not create these just to reserve names. Initially keep kernel configuration, desktop profiles, themes and mirror policy in the existing owners unless a measured need justifies a split.
+| Repository | Intended ownership | Current honest status |
+|---|---|---|
+| `deku-profiles` | Declarative architecture/desktop profiles and package selection | Experimental Fedora 44 x86_64 UEFI profile; no independently validated image input yet |
+| `deku-tests` | Shared integration contracts, disposable VM acceptance and recovery tests | Unit-tested QEMU/UEFI serial-marker harness; no Deku ISO has passed it yet |
+| `deku-release` | Release manifests, acceptance evidence and artifact promotion | Manifest contract only; no release pipeline |
+| `deku-signing` | Repository/release trust policy, keys, rotation and verification integration | Threat-model proposal; no production keys or signing service |
+| `deku-updater` | Client-side update orchestration after package transactions are safe | Future component; no update engine |
+| `deku-kernel` | Upstream Linux configuration and a narrow, justified patch queue | Tracking scope only; not a Linux fork or kernel build service |
+| `deku-desktop` | KDE Plasma integration, defaults and desktop acceptance tests | Bootstrap scope; no supported desktop image |
+| `deku-themes` | Original, licensed theme and branding assets | Bootstrap repository; asset provenance must be recorded |
+| `deku-mirrors` | Mirror policy, health and eventual repository synchronization | Planning only; no production mirrors |
+| `deku-rukn` | Independent Arabic-first programming language and Rust toolchain | Separate experimental language project; not an ISO dependency |
+| `.github` | Organization-wide public profile and shared project guidance | Organization metadata; not a system component |
+| `Deku-Foundation.github.io` | Multilingual website and verified public release information | Static website; no ISO download until a real artifact passes acceptance |
 
-Do not fork Linux, KDE Plasma, a package ecosystem, or an image builder just to hold Deku configuration. Use upstream releases and track any necessary patches explicitly.
+No additional repository is needed for the first ISO. Keep profiles, image building, package trust and release contracts in their defined owners; add source code only when it has a concrete tested responsibility. In particular, do not build a mirror, signing service, updater, or physical-disk installer before the relevant repository format and recovery behavior exist.
 
 ## Proposed implementation sequence
+
+The first Fedora 44/Lorax pipeline now exists on `deku-system/dev`. Its first attempt installed the image's packages and generated the live root filesystem, but ISO generation failed because the GRUB BIOS module directory lacked `moddep.lst`. The Kickstart now explicitly includes GRUB PC and module packages, the boot-marker service no longer orders itself after `multi-user.target`, and the next run must still prove the result. This is a build experiment, not a claim that an ISO is ready.
 
 ### Gate A — decide the platform (no ISO claim yet)
 
