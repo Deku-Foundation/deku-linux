@@ -7,6 +7,15 @@
 3. Propose an issue or ADR before broad architectural changes.
 4. Never submit credentials, private keys, access tokens, personal data, or proprietary material.
 
+## Branch workflow
+
+- Use `dev` for integration and validation; `main` is the reviewed baseline.
+- Test changes on `dev`, inspect the diff, and open a pull request from `dev` to `main` only after the applicable checks pass.
+- Keep long-lived branches to `main` and `dev`. Temporary branches are exceptions for active pull requests; forks are preferred for independent contributor work.
+- After promotion, verify the post-merge checks and confirm `dev` is synchronized before starting the next task.
+
+See the [foundation-wide engineering workflow](https://github.com/Deku-Foundation/Deku-Foundation.github.io/blob/main/ENGINEERING_WORKFLOW.md) and [governance policy](https://github.com/Deku-Foundation/Deku-Foundation.github.io/blob/main/GOVERNANCE.md).
+
 ## Changes
 
 - Keep pull requests focused and explain the problem, approach, risks, and validation.
