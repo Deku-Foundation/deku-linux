@@ -60,10 +60,10 @@ Until Discussions are enabled and tested, link contributors to the existing cont
 
 A maintainer should review GitHub repository settings directly and record the resulting configuration. The code cannot prove a setting has been enabled.
 
-- Protect main with a repository ruleset or branch protection rule.
-- Require pull requests for changes to main; require at least one maintainer review where staffing permits.
-- Require applicable CI checks for the repository, and dismiss stale approvals when new commits materially change a reviewed patch.
-- Restrict force pushes and branch deletion on main; define a documented exception process for incidents.
+- Restrict who can update `main`; block force pushes and accidental branch deletion.
+- Configure the permitted maintainer promotion path as a fast-forward from the exact `dev` commit whose required checks have passed. Do not require a pull request for this `dev` → `main` promotion.
+- Review external contributions through forks and pull requests into `dev`; require applicable CI checks and review for those proposals.
+- Verify branch rules and permissions in GitHub settings before recording them as enabled; this runbook does not prove that a setting is active.
 - Set GITHUB_TOKEN permissions to read-only unless a specific job needs more.
 - Keep deploy, signing and publication credentials out of build/test jobs and untrusted pull-request workflows.
 - Pin GitHub Actions to full commit SHAs and audit changes to workflow files.
@@ -96,7 +96,8 @@ The current package manager, build tool and installer are prototypes. This runbo
 - [ ] A Project owner is named; the shared board and its fields/views are created.
 - [ ] Project automation is tested with a real issue and a closed PR.
 - [ ] Discussions decision is recorded; if enabled, categories and moderation guidance are in place.
-- [ ] Main-branch rules require the intended reviews and checks.
+- [ ] Main-branch permissions restrict updates to the verified maintainer promotion path and reject force pushes/deletion.
+- [ ] External contribution checks require review and relevant CI before merging into `dev`.
 - [ ] Workflow permissions and full-SHA Action pins are checked across all repositories.
 - [ ] Private security reporting is configured and an owner is monitoring it.
 - [ ] Release-key custody, revocation and recovery are documented before signing production artifacts.
@@ -104,3 +105,7 @@ The current package manager, build tool and installer are prototypes. This runbo
 - [ ] A successful default-branch Pages deployment is checked after website changes.
 
 **Completion evidence:** add the settings links, board URL, names of responsible maintainers, and date of the last verification here once those actions are completed. Do not mark checklist items complete from a pull-request merge alone.
+
+## Documentation style
+
+Write for the reader's task. State what is implemented, what has been tested and what remains planned; preserve limitations and keep translations aligned. Follow the [Deku Foundation technical writing standard](https://github.com/Deku-Foundation/.github/blob/main/EDITORIAL_STYLE.md).
