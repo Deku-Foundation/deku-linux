@@ -89,6 +89,26 @@ Bootstrap is a special trust boundary. A first-stage binary can be necessary, bu
 
 ## 7. Decisions and gates
 
+### Package-engine decision gate — not yet ratified (2026-10-26)
+
+The XBPS recommendation below is a proposal, not an accepted architecture decision. The open [native Rust package-engine PR #18](https://github.com/Deku-Foundation/deku-pkg/pull/18) is a competing implementation direction: it adds DPAK archive handling, dependency resolution, a content store and TUF-backed fetching, but it is still marked unmergeable and does not yet provide a complete durable install/upgrade/removal transaction. The current main-branch package manager must therefore remain explicitly experimental.
+
+**Do not treat either direction as the production baseline until a maintainer records the decision.** Keep the XBPS adaptation and native Rust engine as alternatives; avoid expanding both in parallel or merging a large implementation solely because its unit tests pass.
+
+The decision review must compare the same observable contract for both options:
+
+- package identity, version and ABI compatibility;
+- authenticated repository metadata, expiry/rollback handling and key rotation;
+- install, upgrade, removal, file ownership, conflict detection and repair;
+- durable transaction journal, interruption recovery and rollback;
+- package archive/path safety and bounded resource use;
+- recipe/build integration, provenance, license obligations and upstream security updates;
+- test coverage, maintenance cost, migration path and compatibility with the chosen system-root update model.
+
+**Minimum phase-one proof:** build one small package from a reviewed, digest-pinned recipe; publish it to a local signed test repository; verify it from a clean client; install, upgrade and remove it only inside a temporary root; inject corrupted archives, path traversal, collisions, expired metadata, rollback attempts and interrupted transactions; then demonstrate recovery with automated evidence. No live-root writes, production keys or ISO are required for this gate.
+
+If XBPS is selected, pin the exact upstream revision, preserve notices, test the Deku integration and keep Void repository URLs/keys disabled. If the native Rust engine is selected, it must meet the same transaction and recovery criteria before it can replace the existing prototype. The recommendation in this document does not itself authorize either implementation.
+
 1. **Package manager baseline (recommended):** use adapted XBPS code for the first functional package engine, and stop adding a competing native install/transaction engine to the current Rust prototype. Preserve the Deku-owned package/command interface and make repository/key/default changes explicit. Keep the Rust core for validation, deterministic plans and integration; only plan a full Rust replacement after a concrete requirement is demonstrated and install/upgrade/recovery tests reach parity.
 2. **Recipe/build baseline:** adapt the useful `void-packages`/`xbps-src` recipe phases, build options, bootstrap, chroot and package-output flow. Port recipes selectively into `deku-recipes`; do not treat Void-specific templates or patches as portable without review. Execute recipes only in an unprivileged, isolated worker with no build-time network by default and no secrets.
 3. **Repository trust:** define the signed metadata/index format and lifecycle; use TUF-compatible roles or the existing `tough` integration rather than inventing cryptographic protocols.
