@@ -10,9 +10,9 @@
 ## Branch workflow
 
 - Use `dev` for integration and validation; `main` is the reviewed baseline.
-- Test changes on `dev`, inspect the diff, and open a pull request from `dev` to `main` only after the applicable checks pass.
-- Keep long-lived branches to `main` and `dev`. Temporary branches are exceptions for active pull requests; forks are preferred for independent contributor work.
-- After promotion, verify the post-merge checks and confirm `dev` is synchronized before starting the next task.
+- Maintainers make routine changes directly on `dev`, run the applicable checks, and inspect the diff. When all required checks pass, fast-forward `main` to the exact `dev` commit; do not open a PR to promote `dev` to `main`.
+- Keep `main` and `dev` as the only persistent repository branches. Do not create in-repository feature branches for routine work. External contributors can use a fork and submit changes for review into `dev`.
+- After promotion, confirm that `main` and the verified `dev` commit match, then check deployment or post-promotion workflows.
 
 See the [foundation-wide engineering workflow](https://github.com/Deku-Foundation/Deku-Foundation.github.io/blob/main/ENGINEERING_WORKFLOW.md) and [governance policy](https://github.com/Deku-Foundation/Deku-Foundation.github.io/blob/main/GOVERNANCE.md).
 
@@ -30,7 +30,7 @@ Use concise imperative messages. Conventional Commits style is encouraged, for e
 
 ## Review and merge
 
-- Prefer pull requests over direct commits to the default branch.
+- Use pull requests to review external contributions from forks. Maintainer changes are validated on `dev` and promoted to `main` with a direct fast-forward after required checks pass.
 - Have another maintainer review changes when project size permits.
 - Require applicable CI checks to pass once configured.
 - Give security-sensitive changes additional scrutiny.
@@ -43,3 +43,7 @@ Contributors must have the right to submit their work. Check the repository lice
 ## Conduct concerns
 
 Report sensitive concerns privately through a verified maintainer contact. Do not publish personal information in issues.
+
+## Documentation style
+
+Write for the reader's task. State what is implemented, what has been tested and what remains planned; keep important limitations and translations aligned. Follow the [Deku Foundation technical writing standard](https://github.com/Deku-Foundation/.github/blob/main/EDITORIAL_STYLE.md).
